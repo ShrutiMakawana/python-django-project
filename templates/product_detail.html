@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/static/assets/css/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="/static/assets/css/all.min.css"/>
+  <link rel="stylesheet" href="/static/assets/css/style.css"/>
+  <link rel="stylesheet" href="/static/cart.css"/>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+  <style>
+    .nav ul li a{
+      text-decoration: none;
+      color:white;
+    }
+    .nav ul li a:hover{
+      color:black;
+    }
+    .stock
+    {
+      background-color:white;
+      color:darkred;
+      font-weight:bold;
+      height:40px;
+      border-radius:20px;
+      border:solid darkred 2px;
+      width :250px;
+      text-align: center;
+      padding : 5px;
+      font-size :18px;
+    }
+  </style>
+</head>
+<body style="background-color:#EEEEEE;">
+  <header>
+    <div class="nav">
+    <!--
+      <a href="#" class="logo">
+        <ion-icon name="fast-food"></ion-icon>
+        Food Delight
+      </a>
+    -->
+    <ul class="navbar">
+      <li><a href="{% url 'category' 'SK' %}">Skin</a></li>
+      <li><a href="{% url 'category' 'HR' %}">Hair</a></li>
+      <li><a href="{% url 'category' 'NL' %}">Nail</a></li>
+      <li><a href="{% url 'category' 'BD' %}">Body</a></li>
+      
+      <li class="go">
+      <a href="{% url "index" %}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16" style="margin-left:5px ;margin-top:13px">
+        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+      </svg></a></li>
+        
+    </ul>
+      <div class="box" style="margin-top:-15px;">
+        <a href="{% url 'showcart' %}">
+        <div class="cart-count" style="color:white;">{% if totalitem >= 0 %}{{totalitem}}{% endif %}</div>
+        <ion-icon name="cart" id="cart-icon" ></ion-icon>
+        </a>
+      </div>
+
+      <div class="cart">
+        <div class="cart-title">Cart Items</div>
+        <div class="cart-content">
+
+     </div>
+        
+      <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">₹ 0</div>
+      </div>
+
+      <button class="btn-buy">Place Order</button>
+
+      <ion-icon name="close" id="cart-close"></ion-icon>
+
+      </div>
+    </div>
+  </header>
+
+  <h1  class="col text-center mb-4">Product Detail </h1>
+<div class="container ">
+    <div class="row flex justify-content-between">
+        <div class="img2 col-lg-5 mt-5">
+            <img src="{{product.image.url}}" class="image col-xs-6 col-sm-12  col-lg-1 mt-3 text-sm-center w-100 h-30" alt=""/>
+        </div>
+        <div class="productdetail col-lg-5">
+            <h1 style="font-family:Georgia; font-size:50px;">{{product.name}}</h1><br>
+            <h4 style="color:#ce1212;">₹ {{product.discounted_price}}/-</h4>
+            <br><h4>Product Features</h4>
+            <ul class="fs-10 text-break" style="font-family:Rajdhani;">
+                <li>{{product.description}}</li>
+                <li> Compisition :{{product.composition}}</li>
+                <li>Use :{{product.prodapp}}</li>
+                
+            </ul>
+        
+            <form action="/add-to-cart" class="d-inline">
+
+              <input type="hidden" name="prod_id" value="{{product.pro_id}}"/>
+                  {% if product.stock == 0 %}
+                    <p style="color:darkred" class="stock"> Out of stock </p>
+                  {% endif %}
+
+                  {% for cart in cart %}
+                    {% if cart.product.name == product.name %}
+                      <p style="color:darkred" clas="alert alert-danger">This product is already in your cart.<br>
+                                               Please check your cart.</p>
+                    {% endif %}
+                  {% endfor %}
+
+                <button type="submit" class="btn btn-dark shadow px-5 py-2" {% if product.stock == 0 %} hidden {% endif %}{% for cart in cart %}{% if cart.product.name == product.name %}disabled {% endif %}{% endfor %}>
+                      Add to Cart
+                  </button>
+                  {% comment %} <button type="submit" class="btn btn-warning shadow px-5 py-2 ms-4">Buy Now</button> {% endcomment %}
+                
+            </form>
+            
+        </div>
+        </div>
+    </div>
+  </div>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="/static/assets/js/owl.carousel.min.js"></script>
+<script src="/static/assets/js/all.min.js"></script>
+<script src="/static/assets/js/myscript.js"></script>
+
+  <!--<script src="/static/cart.js"></script>-->
+</body>
+</html>

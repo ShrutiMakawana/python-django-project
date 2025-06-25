@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SmartLook Bridal Studio & Academy</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/assets/img/roundlogo.png" rel="icon">
+  <link href="/static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Template Main CSS File -->
+  <link href="/static/assets/css/main.css" rel="stylesheet">
+  <style>
+    .booking-form {
+      background-color: #ffffff;
+      margin-bottom: 10px;
+      padding: 10px;
+      width:800px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+  } 
+  .service{
+      background-color: #ffffff;
+      margin-bottom: 5px;
+      padding: 20px 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  .service span {
+      margin-right: 10px;
+  }
+  .booking-form {
+    display: none;
+    font-size:17px;
+}
+.booking-form button{
+    padding:12px 50px;
+    font-size:20px;
+}
+.booking-form  input{
+    width:200px;
+    margin-bottom:20px;
+    margin-left:10px;
+}
+.booking-form label{
+  margin-left:150px; 
+  font-size:17px;
+  font-weight:bolder;
+}
+.booking-form select{
+  width:200px;
+  margin-bottom:30px;
+  margin-left:10px;
+}
+label, input, select {
+    display: inline;
+    margin-bottom: 10px;
+    width: 100%;
+}
+button {
+    padding: 10px;
+}
+  button {
+      background-color: #ce1212;
+      color: white;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      border: none;
+      margin-left:10px;
+      font-weight: bolder;
+      cursor: pointer;
+      border-radius: 10px;
+  }
+  button:focus {
+      background-color: #f0f0f0;
+      opacity: 0.8;
+      color: #fd3030;
+  }
+  .categories {
+      font-size:large;
+      }
+  
+    
+  .services-section h2{
+  
+      text-align: center;
+  }
+  .services-section {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      
+      flex-grow: 1;
+      width: 600px;
+      display: none; /*Initially hide all service sections */
+  }
+  .service-item {
+      margin-bottom: 10px;
+  }
+  .header {
+      
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+  }
+  .footer {
+      
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      margin-top: 20px;
+  }
+  .service button{
+      margin-left: 270px;
+      float:right;
+      margin-top:-12px; 
+  }
+  #profile-pic:hover{
+    border:2px solid gray;
+    border-radius:40px;
+    margin: 2px 2px;
+  }
+  #con_btn:hover{
+    background: rgba(206, 18, 18, 0.8);
+  box-shadow: 0 8px 20px rgba(206, 18, 18, 0.45);
+  }
+  </style>
+
+  
+</head>
+
+<body class="shruti">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+       <!-- <img src="/static/assets/img/fsmart.png" alt="" style="height:190px; width:170px">-->
+         <h1>Smart<span> Look</span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#book-a-table">Service</a></li>
+          
+          <li><a href="#menu">Product</a></li>
+          <li><a href="#events">Academy</a></li>
+          <li><a href="#chefs">Employees</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+         
+          <li><a href="#about">About</a></li>
+
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <a class="btn-book-a-table" href="signup">sign up</a>
+
+      {% if user.is_authenticated %}
+      <span><a href="userpro"><img src="/static/assets/img/u_pro.png" height="40px" width="40px" id="profile-pic"></a></span>
+      {% endif %}
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+  <br>
+  
+
+  <!---->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center section-bg">
+    
+    <div class="container">
+      {% if messages %}
+        {% for m in messages %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong> {{ m }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <!--{% if messages %} 
+            {% for m in messages %}
+              <div class="alert alert-danger">
+                      {{ m }}
+                        </div>
+            {% endfor %}
+          {% endif %} -->
+      
+      <div class="row justify-content-between gy-5">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          <h2 data-aos="fade-up">Everyone is <span>beautiful</span>,<br>we just make it <span>obvious</span>!</h2>
+          <p data-aos="fade-up" data-aos-delay="100" style="font-size: 19px;">Because being beautiful would never harm you...!! <br>
+            We'll style while you smile !! <br>We would love to exceed your expectations.</p>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href="#book-a-table" class="btn-book-a-table" style="margin-left:150px;">Book Now</a>
+            <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          <img src="/static/assets/img/girlastra.png" class="img-fluid" style="height: 470px;width:700px;" alt="" data-aos="zoom-out" data-aos-delay="200">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Book A Appointment</h2>
+          <p>Book <span>Your Care</span> With Us</p>
+        </div>
+
+        <center>       
+          <div class="categories">
+              <button class="category-link" onclick="showServices('hair')">Hair Services</button>
+              <button class="category-link" onclick="showServices('skin')">Skin Services</button>
+              <button class="category-link" onclick="showServices('body')">Body Services</button>
+              <button class="category-link" onclick="showServices('nails')">Nail Services</button>
+          </div><br>
+          <!--{% if messages %}
+            {% for m in messages %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertMessage" style="display: none;">
+              <strong>Error!</strong> {{ m }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}-->
+          
+          <br><br>
+          </center> 
+      
+          <center>
+            <!--hairr serviceee-->
+
+            <div class="services-section" id="hair-services">
+                <h2>Hair Services</h2>
+                {% for s in service %}
+                  {% if "Hair" in s.category or "hair" in s.category %}
+                    <div class="service">
+                      <span>{{ s.service_name }}</span>
+                      <button class="book-now-btn" id="hair" data-service="{{ s.service_name }}">Book Now</button>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            </div>
+    
+            <!--skinnnn serviceee-->
+
+            <div class="services-section" id="skin-services">
+              <h2>Skin Services</h2>
+              {% for s in service %}
+                {% if "Skin" in s.category or "skin" in s.category %}
+                  <div class="service">
+                    <span>{{ s.service_name }}</span>
+                    <button class="book-now-btn" id="skin" data-service="{{ s.service_name }}">Book Now</button>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          
+            <!--bodyy serviceee-->
+
+            <div class="services-section" id="body-services">
+              <h2>Body Services</h2>
+              {% for s in service %}
+                {% if "Body" in s.category or "body" in s.category %}
+                  <div class="service">
+                    <span>{{ s.service_name }}</span>
+                    <button class="book-now-btn" id="body" data-service="{{ s.service_name }}">Book Now</button>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          
+            <!--nailsss serviceee-->
+             
+            <div class="services-section" id="nails-services">
+              <h2>Nails Services</h2>
+              {% for s in service %}
+                {% if "Nail" in s.category or "nail" in s.category %}
+                  <div class="service">
+                    <span>{{ s.service_name }}</span>
+                    <button class="book-now-btn" id="nail" data-service="{{ s.service_name }}">Book Now</button>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+          <br><br>
+          <!--formmmmmm-->
+          <div class="booking-form" >
+            <h2>Book an Appointment</h2><hr>
+            
+            <form id="temp" action="appointmentbooking" method="post" style="text-align:left;"> 
+              <!-- enctype="multipart/form-data" -->
+              {% csrf_token %}
+              <div>
+                <label for="name">Name :</label> &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div>
+                <label for="age">Age :</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="number" id="age" min="1" name="age" required>
+              </div>
+              <div>
+                <label for="mobileno">Mobile No. :</label>
+                <input type="tel" id="mobileno" minlength="10" maxlength="10" name="mobileno" required>
+              </div>
+              <div>
+                <label for="email">E-mail :</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div>
+                  <label for="selected-service">Service :</label> &nbsp; &nbsp; &nbsp; &nbsp;
+                  <input type="text" id="selected-service" name="service" readonly required>
+              </div>
+              
+                <input hidden type="text" id="category" name="category" required>
+            
+              <div>
+                  <label for="date">Date :</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <input type="date" id="date" name="date" required>
+              </div>
+              <script>
+                window.onload = function(){
+                    var today = new Date();
+                    var tomorrow = new Date(today);
+                    tomorrow.setDate(tomorrow.getDate() + 1); // Get tomorrow's date
+                    var dd = tomorrow.getDate();
+                    var mm = tomorrow.getMonth() + 1; //January is 0!
+                    var yyyy = tomorrow.getFullYear();
+                    if(dd < 10){
+                        dd = '0' + dd;
+                    } 
+                    if(mm < 10){
+                        mm = '0' + mm;
+                    } 
+                    var tomorrowFormatted = yyyy + '-' + mm + '-' + dd;
+                    document.getElementById("date").setAttribute("min", tomorrowFormatted);
+                };
+            </script>
+            
+              <div>
+                  <label for="timen">Select Slot :</label>
+                  <select for="slot" name="slot">
+                    <option name="slot" id="s1">10:00-11:59 AM</option>
+                    <option name="slot" id="s2">12:00-2:00 PM</option>
+                    <option name="slot" id="s3">2:00-4:00 PM</option>
+                    <option name="slot" id="s4">4:00-6:00 PM</option>
+                    <option name="slot" id="s5">6:00-8:00 PM</option>
+
+                  </select>
+              </div><br>
+                
+              <!--
+              {% if not slot_available %}
+                <div class="alert alert-danger">
+                  This slot is already booked for the selected service.
+                </div>
+              {% endif %} 
+              {% if slot_available == False %}
+                {% for m in messages %}
+                  <p style="color:red"> {{ m }} </p>
+                {% endfor %} 
+              {% endif %}    -->
+              
+              
+                <center>
+                  <span>
+                    
+                    <button type="submit" id="s" >Book Appointment</button> 
+                  <span>
+                  </center><br>
+                </form>
+              
+        </div>
+      </div>
+    </center>
+          <script>
+            // Show booking form when "Book Now" is clicked
+            document.querySelectorAll('.book-now-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelector('.booking-form').style.display = 'block';
+                    document.getElementById('selected-service').value = button.getAttribute('data-service');
+                    document.getElementById('category').value = button.getAttribute('id');
+                });
+            });
+    
+            // Handle form submission
+            document.getElementById('appointment-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Appointment booked successfully for ' + document.getElementById('selected-service').value + '!');
+                // Reset form (optional)
+                this.reset();
+                // Hide form again (optional)
+                document.querySelector('.booking-form').style.display = 'none';
+            });
+            function fun()
+            { 
+                {% if slot_available == False %}
+                  alert("This slot is already booked");
+                {% endif %}
+            }
+        </script>
+        
+    <script>
+        function showServices(categoryId) {
+            // Hide all services sections
+            var services = document.querySelectorAll('.services-section');
+            services.forEach(function(service) {
+                service.style.display = 'none';
+            });
+            
+            // Show the selected category's services
+            var selectedService = document.getElementById(categoryId + '-services');
+            if (selectedService) {
+                selectedService.style.display = 'block';
+            }
+        }
+        </script>
+         <script>
+            // Get all book now buttons
+            const bookNowBtns = document.querySelectorAll('.book-now-btn');
+    
+            // Add event listener to each book now button
+            bookNowBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Display booking form and set selected service
+                    const service = button.dataset.service;
+                    document.getElementById('selected-service').value = service;
+                    document.querySelector('.booking-form').classList.add('active');
+                });
+            });
+    
+            // Add event listener to appointment form
+            document.getElementById('appointment-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Here you can add code to handle the form submission, such as sending data to a server or displaying a confirmation message.
+                // For this example, let's just display an alert.
+                alert('Appointment booked successfully!');
+            });
+        </script>
+    </section><!-- End Book A Table Section -->
+
+    <!-- ======= Product Section ======= -->
+    <section id="menu" class="menu">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header" class="shruti">
+          <h2>Our product</h2>
+          <p>Check Our <span>Best Product</span></p>
+        </div>
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="tab-pane fade active show" id="menu-starters">
+  
+            <div class="tab-header text-center">
+             <!--   <p>Product</p>
+                <h3>Skin</h3>
+              </div>-->
+  
+              <div class="row gy-5">
+  
+                <div class="col-lg-4 menu-item">
+                  <a href="/static/assets/img/skin.jpg" class="glightbox"><img src="/static/assets/img/skin.jpg" class="menu-img img-fluid" alt=""></a>
+                  <h4><a href="{% url 'category' 'SK' %}">Skin Poducts</a></h4>
+                  <p class="ingredients"></p>
+                  <p class="price"></p>
+                </div><!-- product Item -->
+  
+                <div class="col-lg-4 menu-item">
+                  <a href="/static/assets/img/hair.jpg" class="glightbox"><img src="/static/assets/img/hair.jpg" class="menu-img img-fluid" alt=""></a>
+                  <h4><a href="{% url 'category' 'HR' %}">Hair Poducts</a></h4>
+                  <p class="ingredients"></p>
+                  <p class="price"></p>
+                  
+                </div><!-- product Item -->
+
+                <div class="col-lg-4 menu-item">
+                    <a href="/static/assets/img/nail.jpg" class="glightbox"><img src="/static/assets/img/nail.jpg" style="height: 160px; width: 400px;" class="menu-img img-fluid" alt=""></a>
+                    <h4><a href="{% url 'category' 'NL' %}">Nails Products</a></h4>
+                    <p class="ingredients"></p>
+                    <p class="price"></p>
+                    
+                  </div><br><!-- product Item -->
+  
+
+    </div>
+    </section><!-- End product Section -->
+
+    
+    <!-- ======= Academy Section ======= -->
+    <section id="events" class="events">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Academy</h2>
+          <p>Look at <span>best classes plan</span> for you.</p>
+        </div>
+
+        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(/static/assets/img/tues3.jpg)">
+              <h2 class="price align-self-start">Basic Course</h2>
+              <h4 style="color: rgb(184, 184, 184);">₹ 20,000</h4>
+              <p class="description">
+                It includes basic hair styling techniques (straightening, curling, etc), Basic
+                body services training (wax, manicure, pedicure, etc) and basic skincare
+                (facial, bleach, etc).
+              </p>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(/static/assets/img/events-2.jpeg)">
+              <h2 class="price align-self-start">Advanced Course</h2>
+              <h4 style="color: whitesmoke;">₹ 30,000</h4>
+              <p class="description">
+                It includes basic course along with Advanced Hair styling techniques, 
+              HD Makeup & 3D Makeup techniques, Bridal Mehndi training and all chemical treatments.</p>
+            </div><!-- End Event item -->
+
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url(/static/assets/img/tues4.avif)">
+              <h2 class="price align-self-start">SmartLook Sp. Course</h2>
+              <h4 style="color: rgb(184, 184, 184);">₹ 50,000</h4>
+              <p class="description">
+                SmartLook Special Course provides Advanced course along with Air brush Makeup techniques, Nano-
+              plastia surgery techniques, Professional Nail art & Professional Hair styling.</p>
+            </div><!-- End Event item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Events Section -->
+
+    <!-- ======= Chefs Section ======= -->
+    <section id="chefs" class="chefs section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Employees</h2>
+          <p>Our <span>Proffesional</span> Employees</p>
+        </div>
+
+        <div class="row gy-4">
+          {% for e in employee %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="chef-member">
+              <div class="member-img">
+                <img src="{{ e.image }}" class="img-fluid" alt="">
+                <div class="social">
+                  <!-- <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a> -->
+                  <a href="https://www.instagram.com/parulgargmakeup?igsh=MzRlODBiNWFlZA=="><i class="bi bi-instagram"></i></a>
+                  <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 style="font-family: 'Verdana';"><b> {{ e.name }} </b></h3>
+                <span style="color:brown;font-size: 16px;"> {{ e.designation }} </b></span>
+                <p style="color: rgb(103, 103, 103);font-size: 15px;"> {{ e.description }} </p>
+              </div>
+            </div>
+          </div><!-- End Chefs Member -->
+          {% endfor %}
+        </div>
+      </div>
+    </section><!-- End Chefs Section -->
+
+    
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>gallery</h2>
+          <p>Check <span>Our Gallery</span></p>
+        </div>
+     
+      
+        <div class="gallery-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            {% for g in gallery %}
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ g.glr_image }}"><img src="{{ g.glr_image }}" class="img-fluid" alt=""></a></div>
+            <!--<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/static/assets/img/gallery/gallery-2.jpg"><img src="/static/assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/static/assets/img/gallery/gallery-3.jpg"><img src="/static/assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/static/assets/img/gallery/gallery-4.jpg"><img src="/static/assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/static/assets/img/gallery/gallery-5.jpg"><img src="/static/assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/static/assets/img/gallery/gallery-6.jpg"><img src="/static/assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/static/assets/img/gallery/gallery-7.jpg"><img src="/static/assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="/static/assets/img/gallery/gallery-8.jpg"><img src="/static/assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>-->
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        
+
+      </div>
+    </section><!-- End Gallery Section -->
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-header">
+            <h2>About Us</h2>
+            <p>Learn More <span>About Us</span></p>
+          </div>
+  
+          <div class="row gy-4">
+            <div class="col-lg-7 position-relative about-img" style="background-image: url(/static/assets/img/about.jpg) ;
+           background-repeat: no-repeat; height: 700px;" data-aos="fade-up" data-aos-delay="150">
+              <div class="call-us position-absolute">
+                <h4>Book a Appointment</h4>
+                <p>+91 72288 75159 </p>
+                
+              </div>
+            </div>
+            
+            <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+              <div class="content ps-0 ps-lg-5">
+                <p class="fst-italic">
+                  Welcome to <b>SmartLook</b>, where beauty meets relaxation. <br><br>
+                  At <b>SmartLook</b>, we believe that everyone deserves to look and feel their best. 
+                  Our team of experienced stylists and beauty professionals are dedicated to providing 
+                  exceptional service in a welcoming and comfortable atmosphere.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> With a passion for the latest trends and techniques, we offer a wide range of services including haircuts, styling, coloring, manicures, pedicures, facials, and more.</li>
+                  <li><i class="bi bi-check2-all"></i> Whether you're looking for a quick touch-up or a complete transformation, our skilled team is here to help you achieve your desired look.</li>
+                  <li><i class="bi bi-check2-all"></i> We adhere to strict sanitation protocols and use only high-quality products to ensure the best results without compromising your well-being.
+                  </li>
+                </ul>
+                <p>
+                  Thank you for considering SmartLook for your beauty needs. 
+                  We look forward to welcoming you to our salon and helping you look and feel your absolute best.
+                </p>
+  
+                <div class="position-relative mt-4">
+                  <img style="width: 600px;" src="/static/assets/img/about-2.jpg" class="img-fluid" alt="">
+
+                  <!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>Need Help? <span>Contact Us</span></p>
+        </div>
+
+        <div class="mb-3">
+         <!-- <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1880179.1313851455!2d71.20075509989911!3d22.817417318804296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1711649799375!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>-->
+         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.4812446552933!2d72.6555665743683!3d23.04281191557431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e874dcf7f8ffd%3A0xe37bcb12bb285d4b!2sSMARTLOOK%20Bridal%20studio!5e0!3m2!1sen!2sin!4v1711728190345!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
+         
+        </div><!-- End Google Maps -->
+
+        <div class="row gy-4">
+
+          <div class="col-md-6">
+            <div class="info-item  d-flex align-items-center">
+              <i class="icon bi bi-map flex-shrink-0"></i>
+              <div>
+                <h3>Our Address</h3>
+                <p>GF-05/06/07,Ishawar Icon,Near : Sunrise Park Jivanwadi,Nikol Gam Road, Nikol,Ahmd-382350</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center">
+              <i class="icon bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>mukeshbagthariya2984@gmail.com</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item  d-flex align-items-center">
+              <i class="icon bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+91 72288 75159</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item  d-flex align-items-center">
+              <i class="icon bi bi-share flex-shrink-0"></i>
+              <div>
+                <h3>Opening Hours</h3>
+                <div><strong>Mon-Sat:</strong> 10AM - 8PM;
+                  <strong>Sunday:</strong> Closed
+                </div>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+        <br>
+        <form action="saveEnquiry" method="post" role="form">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-xl-6 form-group">
+              <input type="text" name="name" class="form-control" style="padding-top:15px;padding-bottom:15px;" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col-xl-6 form-group">
+              <input type="email" class="form-control" style="padding-top:15px;padding-bottom:15px;" name="email" id="email" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" style="padding-top:15px;padding-bottom:15px;" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" style="padding-top:15px;padding-bottom:15px;" name="message" id="message" rows="5" placeholder="Message" required></textarea>
+          </div>
+          
+          <br>
+          <div class="text-center"><button type="submit" id="con_btn" style="padding:8px 25px;font-size:20px">Send Message</button></div>
+        </form><!--End Contact Form -->
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer" style="padding-top:60px;">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon" style="padding-left:25px;"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              GF-05/06/07,Ishawar Icon,Near : Sunrise Park Jivanwadi,Nikol Gam Road, Nikol,Ahmedabad-382350<br><br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Bookings</h4>
+            <p>
+              <strong>Phone:</strong> +91 72288 75159<br>
+                mukeshbagthariya2984@gmail.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat : </strong>10AM - 8PM<br>
+              <strong>Sunday : </strong> Closed
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SmartLook</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
+        
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/vendor/aos/aos.js"></script>
+  <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/assets/js/main.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

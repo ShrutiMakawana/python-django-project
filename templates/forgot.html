@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Forgot Password</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(80,80,80);
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+form{
+    height: 550px;
+    width: 500px;
+    /*background-color: rgba(255,255,255,0.13); */
+    background-color: rgba(70,70,70,0.6);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 45%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 40px;
+    margin-top:25px;
+    margin-bottom:30px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 35px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 300;
+}
+input:focus{
+    border: 1.5px solid #ce1212;
+    background-color:rgb(112,112,112);
+}
+input:hover{
+    border: 1.5px solid #ce1212;
+
+}
+::placeholder{
+    color: rgb(194,194,194);
+}
+button{
+    margin-top: 18px;
+    width: 200px;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+}
+button:hover{
+    color: #fff;
+    background-color: #ce1212;
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+   
+    <form action="" method="post">
+      <center> <img  style="height:160px; width:160px;  margin-top:0px"src="/static/assets/img/icon-9.png"/></center>
+        <h3>Forgot Password ?</h3>
+      
+    <br>
+    <br>
+        {% csrf_token %}
+
+        {% if messages %}
+          {% for m in messages %}
+            <div class="alert alert-info">
+              {{ m }}
+            </div>
+          {% endfor %}
+        {% endif %}
+        <label for="email">Email</label>
+        <input type="email" placeholder="Enter your Email" id="email" name="email" required>
+        <center><button type="submit" value="forgot Password">Send OTP</button></center><br>
+
+  
+
+       
+        <!-- <input type="button" value=""> -->
+        <!-- <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div> -->
+        
+      <!--  <span style="color:white">Back to login </span><a href="login" > </a>-->
+    </form>
+</body>
+</html>

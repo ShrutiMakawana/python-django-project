@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/static/assets/css/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="/static/assets/css/all.min.css"/>
+  <link rel="stylesheet" href="/static/assets/css/style.css"/>
+  <link rel="stylesheet" href="/static/cart.css"/>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+</head>
+<body>
+  <header>
+    <div class="nav">
+        <ul class="navbar">
+          <li><a href="{% url 'category' 'SK'%}">Skin</a></li>
+          <li><a href="{% url 'category' 'HR'%}">Hair</a></li>
+          <li><a href="{% url 'category' 'NL'%}">Nail</a></li>
+          <li><a href="{% url 'category' 'BD'%}">Body</a></li>
+          
+          <li class="go">
+          <a href="{% url 'index' %}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16" style="margin-left:5px ;margin-top:13px">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+          </svg></a></li>
+            
+        </ul>
+        <div class="box"style="margin-top:-15px;">
+            <a href="{% url 'showcart' %}">
+            <div class="cart-count">{% if totalitem >= 0 %}{{totalitem}}{% endif %}</div>
+            <ion-icon name="cart" id="cart-icon" ></ion-icon>
+            </a>
+          </div>
+    
+          
+    
+         </div>
+      </div>
+    </div>
+  </header><br>
+  <br>
+
+
+   
+
+
+<div class="container myl-5">
+    <div class="row" >
+        {% if cart %}
+        <h1 class="text-center mb-5">Shopping Cart</h1>
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                
+                {% for item in cart %}  
+                    <div class="row">
+                    <div class="col-sm-3 text-center align-self-center"><img src="{{item.product.image.url}}" alt="" srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"> </div>
+                        <div class="col-sm-9">
+                                <div>
+                                    <h5>{{item.product.name}}</h5>
+                                    <p class="mb-2 text-muted small">{{item.product.description}}</p>
+                                    <div class="my-3">
+                                        <label for="quantity">Quantity: </label>
+                                        <a class="minus-cart btn" pid={{item.product.pro_id}}><i class="fas fa-minus-square fa-lg"></i></a>
+                                        <span id="quantity">{{item.quantity}}</span>
+                                        <a class="plus-cart btn" pid={{item.product.pro_id}}><i class="fas fa-plus-square fa-lg"></i></a>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="#" class="remove-cart btn btn-sm btn-secondary mr-3" pid={{item.product.pro_id}} >Remove item </a>
+                                        <p class="mb-0"><span><strong>Rs. {{item.product.discounted_price}}</strong></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <hr class="text-muted">
+                    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>The Total Amount of</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-8 px-0 pb-8">Amount<span id="amount">Rs.{{amount}}</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0">Shipping<span>Rs. 40.00</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center border- px-0 mb-3">
+                        <div>
+                            <strong>Total</strong> <small>(including GST)</small>
+                        </div>
+                        <span id="totalamount"><strong>Rs. {{totalamount}}</strong></span>
+                        </li>
+                    </ul>
+                    <div class="d-grid"><a href="{% url 'checkout' %}" class="btn btn-dark"
+                        > Checkout</a></div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <h1 class="text-center mb-5" >Cart is Empty</h1>
+        {% endif %}
+    </div>
+</div>
+
+
+</body>
+  
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="/static/assets/js/owl.carousel.min.js"></script>
+<script src="/static/assets/js/all.min.js"></script>
+<script src="/static/assets/js/myscript.js"></script>
+</body>
+</html>

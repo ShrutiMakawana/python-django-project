@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Satisfy&display=swap" rel="stylesheet">
+
+  <style>
+    .satisfy-regular {
+      font-family: "Satisfy", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #bababa;
+      
+    }
+    .merriweather-light {
+      font-family: "Merriweather", serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    a{
+      color:black;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .container {
+      margin: 20px auto;
+      max-width: 800px; 
+      background-color: #dadada;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 40px rgba(8,7,16,0.6);
+      overflow: hidden;
+    }
+    
+    
+    .profile-info {
+      display: flex;
+      flex-direction: column; /* Adjusted for portrait view */
+      max-height: 1000px; /* Adjusted for portrait view */
+      
+    }
+    
+    .profile-picture {
+      /* width: 150px; */
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          border-style: solid;
+          border-color: #FFFFFF;
+          box-shadow: 0 0 8px 3px #B8B8B8;
+          margin-left: 50px;
+    }
+    
+    .profile-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+    
+    .profile-details {
+      width: 100%; /* Adjusted for portrait view */
+      text-align: left;
+      margin-left:1px; /* Adjusted for portrait view */
+    }
+    
+    h2 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      color: #333;
+      display:inline-block;
+    }
+    
+    div .row {
+      margin: 0 0 5px;
+      font-size: 1.2rem;
+      color: black;
+    }
+    
+    #updateBtn {
+      margin-top: 40px; 
+      margin-left:25px;
+      padding: 10px 20px;
+      background-color: #ce1212;
+      color: #fff;
+      border: none;
+      width:200px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+
+    form #logout-btn{
+      margin-bottom:10px; 
+      margin-left:300px;
+      margin-top : -50px;
+    }
+
+    #logout-btn{
+      width:140px;
+      padding: 5px 8px;
+      background-color: #ce1212;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size:18px;
+    }
+    #updateBtn:hover {
+      background-color: #e32f2f;
+    }
+    
+    input[type="file"] {
+      display: none;
+    }
+    #closeIcon{
+      margin : 10px 10px;
+      width: 10px;
+      padding : 2px 2px;
+    }
+    #closeIcon:hover {
+      background-color: lightgray;
+    }
+    .box{
+      height:100px;
+      width:450px;
+      margin-left:300px;
+      margin-top:-120px;
+    }
+    .cancel
+    {
+      margin-left:400px;
+      
+    }
+    .cancel button
+    {
+      background-color: #ce1212;
+      padding: 5px 5px;
+      color: #fff;
+      border: none;
+      height:40px;
+      width:200px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .o
+    {
+      margin-left:300px;
+    }
+  </style>
+</head>
+<body>
+ 
+
+  <div class="container" id="profileBox">
+    <a href="index" style="text-decoration:none;"><div class="close-icon" id="close_Icon">&times;</div></a> <!-- Cross icon -->
+    {% if messages %}
+        {% for m in messages %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>  {{ m }}<strong>🙁
+            <a href="userpro"><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button></a>
+          </div>
+        {% endfor %}
+      {% endif %}
+    <div class="profile-info">
+      <div class="profile-picture">
+        <!-- Placeholder for profile picture/avatar -->
+        <img id="profilePic" src="/static/assets/img/u_pro.png" alt="Profile Picture">
+      </div>
+      <span class="box">
+        {% for u in user %}
+          {% if u.id == request.user.id %}
+          <h2 id="username">{{u.username}}</h2>
+          <p>Email: <span id="email">{{u.email}}</span></p>
+          <p>Last login 😊: <span id="email">{{u.last_login}}</span></p>
+
+          {% endif %}
+        {% endfor %}
+      </span>
+  
+      <button id="updateBtn" style=" margin-bottom: 20px;">Update Profile Picture</button>
+      
+
+      <h3 >Your Appointments : </h3>
+      <div  class="profile-details  my-6 ">
+      {% for a in appointment reversed  %}
+        {% if a.user == request.user.username %}
+        <br>
+        <p>
+        <span id="uid">{{a.name}}</span>&nbsp;&nbsp;
+            <span>{{a.service}}</span>&nbsp;&nbsp;
+            
+          <span  id="uid">{{a.date}}</span>&nbsp;&nbsp; 
+          <span id="uid">{{a.slot}}</span>
+          <span>
+          
+          </span>
+          
+        </p>
+        </div>
+          <div class="cancel"  >
+          <form action="{% url 'cancel_appointment' a.id %}" method="post" >
+            {% csrf_token %}
+            <button  {% if a.appointment_status == True %} hidden {% endif %}  class="row"style="margin-top:-50px;text-align:center;margin-left:60px;font-size:17px;">Cancel Appointment</button>
+          </form>
+        </div>
+      
+
+         {% endif %}
+        {% endfor %}
+        <!-- Add more details as needed -->
+        <div class="o">
+        <h3>Order History : </h3>
+        
+        {% for o in order reversed  %}
+          
+          
+          <p>
+            <span>{{o.total}}</span>&nbsp;&nbsp;
+          <span id="uid">{{o.created_at}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span><b>{{o.status}}</b></span>&nbsp;&nbsp;
+
+            
+            
+          </p>
+        
+            
+        
+        {% endfor %}
+      
+        
+        <form action="logout">
+        <button id="logout-btn">Logout</button>  </form> 
+        <!-- Hidden input field to trigger file input dialog -->
+        <input type="file" id="fileInput" style="display: none;"> 
+        </div>
+      
+
+       
+        </div>
+      </div>
+    </div>
+  
+  <script >
+    // Sample user data (replace with actual user data)
+
+
+// Function to update user information
+function updateUserInfo() {
+  document.getElementById("username").textContent = userData.name;
+  document.getElementById("email").textContent = userData.email;
+  document.getElementById("uid").textContent = userData.uid;
+}
+
+// Update user information on page load
+window.onload = function() {
+  updateUserInfo();
+};
+
+// // Event listener for update name button
+// document.getElementById("update-name-btn").addEventListener("click", function() {
+//   let newName = prompt("Enter your new name:");
+//   if (newName !== null && newName.trim() !== "") {
+//     userData.name = newName;
+//     updateUserInfo();
+//     // You can add code here to send updated name to the backend
+//     alert("Name updated successfully!");
+//   }
+// });
+
+// Event listener for logout button
+document.getElementById("logout-btn").addEventListener("click", function() {
+  // Perform logout action (e.g., redirect to login page)
+  // You can add code here to handle logout process
+  alert("Logout successful!");
+});
+
+
+ // Function to handle file selection
+ function handleFileSelect(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementById('profilePic').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+// Attach event listener to update button
+document.getElementById('updateBtn').addEventListener('click', function () {
+    // Trigger file input dialog when the button is clicked
+    document.getElementById('fileInput').click();
+});
+
+// Attach event listener to file input
+document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+
+
+// Function to close the profile box
+
+  
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z8S00DMDa4t4+UieOnqtaTc8PMN8kEWMI3/h3E" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

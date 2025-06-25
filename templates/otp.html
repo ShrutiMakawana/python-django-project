@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>OTP</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(80,80,80);
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+form{
+    height: 500px;
+    width: 500px;
+    /*background-color: rgba(255,255,255,0.13); */
+    background-color: rgba(70,70,70,0.6);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 45%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 40px;
+    margin-top:20px;
+    margin-bottom:30px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 35px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 300;
+}
+input:focus{
+    border: 1.5px solid #ce1212;
+    background-color:rgb(112,112,112);
+}
+input:hover{
+    border: 1.5px solid #ce1212;
+
+}
+::placeholder{
+    color: rgb(194,194,194);
+}
+
+.container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .otp-input {
+    width: 220px;
+    height: 50px;
+    margin: 5px;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #ccc;
+    display:inline;
+    color:white;
+    font-weight:bolder;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button{
+    margin-top: 18px;
+    width: 200px;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+}
+button:hover{
+    color: #fff;
+    background-color: #ce1212;
+}
+  
+ 
+  input[type="button"]:hover {
+    background-color: #ce1212;
+    color: #fff;
+    
+  }
+
+  #message{
+     color: #ce1212;
+  }
+  
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+   
+    <form action="" method="post">
+   <center> <img  style="height:140px; width:140px;  margin-top:0px"src="/static/assets/img/password.png"/></center>
+
+            <br>
+            <br>
+            <h2>Enter OTP</h2>
+           <center> 
+            
+              {% csrf_token %}
+              <input class="otp-input" type="text" id="otp" name="otp" maxlength="6" minlength="6" required>
+    
+              <!-- <p id="message"></p> -->
+              {% for m in messages %}
+                <p style="color:red">{{ m }}</p>
+              {% endfor %}
+              
+              <center><button type="submit">Verify OTP</button></center><br>
+            </form></center>
+           
+            
+
+         
+          
+          <script>
+                          // Generate a random 6-digit OTP for demonstration
+            const generatedOTP = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('sh').innerText = generatedOTP.toString();
+
+            function verifyOTP() {
+              const userInput = document.getElementById('otp').value;
+
+              if (userInput === '') {
+                setMessage('Please enter OTP.'+ generatedOTP);
+              } else if (userInput === generatedOTP.toString()) {
+                setMessage('OTP Verified successfully.');
+              } else {
+                setMessage('Incorrect OTP. Please try again.');
+              }
+            }
+
+            function setMessage(message) {
+              document.getElementById('message').innerText = message;
+            }
+
+
+
+            
+          </script>
+          
+    </form>
+</body>
+</html>
